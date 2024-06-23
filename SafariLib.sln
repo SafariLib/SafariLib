@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Integration", "Test.In
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.WebApi", "Test.WebApi\Test.WebApi.csproj", "{F70E9138-564B-48F6-862C-BBB5F2196AE7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafariLib.Core", "SafariLib.Core\SafariLib.Core.csproj", "{36621968-EEF0-4A90-9993-8E206A3DF299}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SafariLib.Core.Tests", "SafariLib.Core.Tests\SafariLib.Core.Tests.csproj", "{A252CC8E-53C3-4B67-9CEC-751A7586714B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +46,13 @@ Global
 		{F70E9138-564B-48F6-862C-BBB5F2196AE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F70E9138-564B-48F6-862C-BBB5F2196AE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F70E9138-564B-48F6-862C-BBB5F2196AE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36621968-EEF0-4A90-9993-8E206A3DF299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36621968-EEF0-4A90-9993-8E206A3DF299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36621968-EEF0-4A90-9993-8E206A3DF299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36621968-EEF0-4A90-9993-8E206A3DF299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A252CC8E-53C3-4B67-9CEC-751A7586714B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A252CC8E-53C3-4B67-9CEC-751A7586714B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A252CC8E-53C3-4B67-9CEC-751A7586714B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A252CC8E-53C3-4B67-9CEC-751A7586714B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

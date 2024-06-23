@@ -13,8 +13,8 @@ namespace SafariLib.EFRepositories.Repository;
 ///     The type of the entity that the repository will interact with.
 /// </typeparam>
 public interface IRepository<TC, T>
-    where T : class
     where TC : DbContext
+    where T : class
 {
     public void Create(T entity);
     public Task CreateAsync(T entity);

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SafariLib.EFRepositories.Tests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb113a06d9936a2af65d30feffea25307bc5d201")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d5884e2742fff36c33848735a450d4eff942acdf")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafariLib.EFRepositories.Tests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafariLib.EFRepositories.Tests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

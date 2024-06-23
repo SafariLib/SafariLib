@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BenoitSafari")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("0.1.1.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.1.1+fdcf461b77aa81e76f54ab4104add3d45861987b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("0.1.1+d5884e2742fff36c33848735a450d4eff942acdf")]
 [assembly: System.Reflection.AssemblyProductAttribute("SafariLib.EFRepositories")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SafariLib.EFRepositories")]
 [assembly: System.Reflection.AssemblyVersionAttribute("0.1.1.0")]

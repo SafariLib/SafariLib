@@ -7,12 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.6"/>
-        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0"/>
+        <ProjectReference Include="..\SafariLib.Core\SafariLib.Core.csproj" />
+        <ProjectReference Include="..\Test.Utils\Test.Utils.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\Test.Utils\Test.Utils.csproj"/>
+      <None Remove="Properties\launchSettings.json" />
     </ItemGroup>
 
 </Project>
