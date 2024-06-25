@@ -21,6 +21,18 @@ public class RepositoryService<TC, T>(IRepository<TC, T> repository) : IReposito
     public async Task<Result<List<T>>> GetAsync(Expression<Func<T, bool>> expression) =>
         new(await repository.Get(expression).ToListAsync());
 
+    public Result<T?> GetFirstOrDefault(Expression<Func<T, bool>> expression)
+    {
+        var entity = repository.Get(expression).FirstOrDefault();
+        return new Result<T?>(entity);
+    }
+
+    public async Task<Result<T?>> GetFirstOrDefaultAsync(Expression<Func<T, bool>> expression)
+    {
+        var entity = await repository.Get(expression).FirstOrDefaultAsync();
+        return new Result<T?>(entity);
+    }
+
     public Result<T?> GetByPrimaryKey(params object?[]? id) => new(repository.GetByPrimaryKey(id));
 
     public async Task<Result<T?>> GetByPrimaryKeyAsync(params object?[]? id) =>

@@ -68,6 +68,34 @@ public class RepositoryServiceTest
         Assert.Equal(user.Id, userById.Value!.Id);
     }
 
+    [Fact]
+    public void GetFirstOrDefault_ShouldReturnEntity()
+    {
+        // Arrange
+        var user = Setup(new User());
+
+        // Act
+        var userById = _repository.GetFirstOrDefault(u => u.Username == user.Username);
+
+        // Assert
+        Assert.NotNull(userById);
+        Assert.Equal(user.Username, userById.Value!.Username);
+    }
+
+    [Fact]
+    public async void GetFirstOrDefaultAsync_ShouldReturnEntity()
+    {
+        // Arrange
+        var user = Setup(new User());
+
+        // Act
+        var userById = await _repository.GetFirstOrDefaultAsync(u => u.Username == user.Username);
+
+        // Assert
+        Assert.NotNull(userById);
+        Assert.Equal(user.Username, userById.Value!.Username);
+    }
+
     private User Setup(User user)
     {
         Setup();
