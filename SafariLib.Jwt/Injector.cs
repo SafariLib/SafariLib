@@ -36,11 +36,8 @@ public static class Injector
         return services;
     }
 
-    public static void AddJwtCacheService(this IServiceCollection services)
-    {
-        services.AddMemoryCache();
-        services.AddScoped<IJwtCacheService, JwtCacheService>();
-    }
+    public static IServiceCollection AddJwtCacheService(this IServiceCollection services)
+        => services.AddScoped<IJwtCacheService, JwtCacheService>();
 
     public static void AddJwtSwagger(this SwaggerGenOptions options)
     {
