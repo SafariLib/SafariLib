@@ -1,4 +1,4 @@
-using SafariLib.EFRepositories.Models;
+using SafariLib.Repositories.Models;
 
 namespace Test.Utils.Data.Models;
 

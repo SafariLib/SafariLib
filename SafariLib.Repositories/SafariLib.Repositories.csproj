@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <LangVersion>12</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <Version>1.0.0</Version>
+        <Title>SafariLib.Repositories</Title>
+        <Authors>BenoitSafari</Authors>
+        <PackageIcon>logo.png</PackageIcon>
+        <RepositoryUrl>https://github.com/SafariLib/SafariLib</RepositoryUrl>
+        <Description>Entity Framework Repository overload that handles validation. Part of the SafariLib project.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\SafariLib.Core\SafariLib.Core.csproj"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <None Include="..\.assets\logo.png" PackagePath=".">
+            <Pack>True</Pack>
+            <Link>logo.png</Link>
+        </None>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.4"/>
+    </ItemGroup>
+
+</Project>

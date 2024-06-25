@@ -6,4 +6,5 @@ namespace Test.Utils.Data;
 public class TestContext(DbContextOptions<TestContext> options) : DbContext(options)
 {
     public DbSet<User> Users { get; set; }
+    public DbSet<UserWithGuid> UsersWithGuid { get; set; }
 }

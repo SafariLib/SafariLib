@@ -8,11 +8,15 @@
 
     <ItemGroup>
         <ProjectReference Include="..\SafariLib.Core\SafariLib.Core.csproj" />
-        <ProjectReference Include="..\Test.Utils\Test.Utils.csproj"/>
+        <ProjectReference Include="..\Test.Utils\Test.Utils.csproj" />
     </ItemGroup>
 
     <ItemGroup>
       <None Remove="Properties\launchSettings.json" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.6" />
     </ItemGroup>
 
 </Project>

@@ -18,13 +18,13 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\SafariLib.EFRepositories\SafariLib.EFRepositories.csproj"/>
+        <ProjectReference Include="..\SafariLib.Repositories\SafariLib.Repositories.csproj"/>
         <ProjectReference Include="..\Test.Utils\Test.Utils.csproj"/>
         <ProjectReference Include="..\Test.WebApi\Test.WebApi.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="Properties\launchSettings.json" />
+        <None Remove="Properties\launchSettings.json"/>
     </ItemGroup>
 
 </Project>
