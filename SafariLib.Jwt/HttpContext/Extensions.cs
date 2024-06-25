@@ -16,8 +16,8 @@ public static class Extensions
 
     public static string? GetCookieToken(this HttpRequest request)
     {
-        var jwtConfig = request.HttpContext.RequestServices.GetRequiredService<IJwtConfigService>();
-        return request.Cookies[jwtConfig.CookieName];
+        var jwtService = request.HttpContext.RequestServices.GetRequiredService<IJwtService>();
+        return request.Cookies[jwtService.GetCookieName()];
     }
 
     public static JwtToken<T> GetJwtToken<T>(this HttpRequest request) =>
@@ -40,20 +40,20 @@ public static class Extensions
 
     public static void SetCookieToken(this HttpResponse response, string token)
     {
-        var jwtConfig = response.HttpContext.RequestServices.GetRequiredService<IJwtConfigService>();
+        var jwtService = response.HttpContext.RequestServices.GetRequiredService<IJwtService>();
         var cookieOptions = new CookieOptions
         {
             HttpOnly = true,
             Secure = true,
             SameSite = SameSiteMode.None,
-            Expires = DateTime.UtcNow.AddMilliseconds(jwtConfig.BearerTokenExpiration)
+            Expires = DateTime.UtcNow.AddMilliseconds(jwtService.GetBearerTokenExpiration())
         };
-        response.Cookies.Append(jwtConfig.CookieName, token, cookieOptions);
+        response.Cookies.Append(jwtService.GetCookieName(), token, cookieOptions);
     }
 
     public static void RemoveCookieToken(this HttpResponse response)
     {
-        var jwtConfig = response.HttpContext.RequestServices.GetRequiredService<IJwtConfigService>();
-        response.Cookies.Delete(jwtConfig.CookieName);
+        var jwtService = response.HttpContext.RequestServices.GetRequiredService<IJwtService>();
+        response.Cookies.Delete(jwtService.GetCookieName());
     }
 }

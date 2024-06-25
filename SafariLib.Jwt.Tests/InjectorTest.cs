@@ -31,19 +31,17 @@ public class InjectorTest
         var scheme = await schemeProvider.GetSchemeAsync(JwtBearerDefaults.AuthenticationScheme);
         var optionsMonitor = provider.GetRequiredService<IOptionsMonitor<JwtBearerOptions>>();
         var jwtBearerOptions = optionsMonitor.Get(JwtBearerDefaults.AuthenticationScheme);
-        var jwtConfig = provider.GetRequiredService<IJwtConfigService>();
         var jwtService = provider.GetRequiredService<IJwtService>();
         var authenticationService = provider.GetRequiredService<IAuthenticationService>();
 
         // Assert
-        Assert.NotNull(jwtConfig);
         Assert.NotNull(jwtService);
         Assert.NotNull(authenticationService);
-        Assert.NotNull(jwtConfig.GetTokenParameters());
-        Assert.NotNull(jwtConfig.GetSigningSecret());
-        Assert.Equal(options.CookieName, jwtConfig.CookieName);
-        Assert.Equal(options.BearerTokenExpiration, jwtConfig.BearerTokenExpiration);
-        Assert.Equal(options.RefreshTokenExpiration, jwtConfig.RefreshTokenExpiration);
+        Assert.NotNull(jwtService.GetTokenParameters());
+        Assert.NotNull(jwtService.GetSigningSecret());
+        Assert.Equal(options.CookieName, jwtService.GetCookieName());
+        Assert.Equal(options.BearerTokenExpiration, jwtService.GetBearerTokenExpiration());
+        Assert.Equal(options.RefreshTokenExpiration, jwtService.GetRefreshTokenExpiration());
         Assert.NotNull(scheme);
         Assert.Equal(JwtBearerDefaults.AuthenticationScheme, scheme.Name);
         Assert.True(jwtBearerOptions.SaveToken);

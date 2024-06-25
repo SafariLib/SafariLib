@@ -2,11 +2,10 @@ namespace SafariLib.Jwt.Models;
 
 public class JwtOptions
 {
-    public string? Audience;
+    public string Audience = string.Empty;
     public long BearerTokenExpiration;
-    public string? CookieName;
-    public string? Issuer;
-    public int? MaxTokenAllowed;
+    public string CookieName = string.Empty;
+    public string Issuer = string.Empty;
     public long RefreshTokenExpiration;
-    public string? Secret;
+    public string Secret = string.Empty;
 }

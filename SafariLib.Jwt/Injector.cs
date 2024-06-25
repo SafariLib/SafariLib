@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using SafariLib.Core.Random;
 using SafariLib.Jwt.Cache;
 using SafariLib.Jwt.Models;
 using SafariLib.Jwt.Services;
@@ -16,21 +17,37 @@ public static class Injector
         JwtOptions options
     )
     {
-        services
-            .AddScoped<IJwtConfigService, JwtConfigService>(_ => new JwtConfigService(options))
-            .AddScoped<IJwtService, JwtService>();
+        options = ValidateOptions(options);
+        var JwtService = new JwtService(options);
+        services.AddScoped<IJwtService, JwtService>(_ => JwtService);
 
-        var jwtConfig = services.BuildServiceProvider().GetRequiredService<IJwtConfigService>();
         services
             .AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
             .AddJwtBearer(bearerOptions =>
             {
                 bearerOptions.SaveToken = true;
                 bearerOptions.RequireHttpsMetadata = false;
-                bearerOptions.TokenValidationParameters = jwtConfig.GetTokenParameters();
+                bearerOptions.TokenValidationParameters = JwtService.GetTokenParameters();
             });
 
         return services;
+    }
+
+    private static JwtOptions ValidateOptions(JwtOptions options)
+    {
+        if (string.IsNullOrWhiteSpace(options.Audience))
+            throw new ArgumentNullException(nameof(options.Audience));
+        if (string.IsNullOrWhiteSpace(options.Issuer))
+            throw new ArgumentNullException(nameof(options.Issuer));
+        if (string.IsNullOrWhiteSpace(options.CookieName))
+            options.CookieName = "RefreshToken";
+        if (string.IsNullOrWhiteSpace(options.Secret))
+            options.Secret = RandomStringUtils.GenerateRandomSecret();
+        if (options.BearerTokenExpiration == 0)
+            throw new ArgumentNullException(nameof(options.BearerTokenExpiration));
+        if (options.RefreshTokenExpiration == 0)
+            throw new ArgumentNullException(nameof(options.RefreshTokenExpiration));
+        return options;
     }
 
     public static IServiceCollection AddJwtCacheService(this IServiceCollection services, int? maxTokenAllowed = null)
