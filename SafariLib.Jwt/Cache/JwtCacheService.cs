@@ -1,17 +1,11 @@
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Configuration;
 using SafariLib.Core.MemoryCache;
-using SafariLib.Jwt.Utils;
 
 namespace SafariLib.Jwt.Cache;
 
-public class JwtCacheService(IMemoryCache memoryCache, IConfiguration configuration)
+public class JwtCacheService(IMemoryCache memoryCache, int maxTokenAllowed)
     : IJwtCacheService
 {
-    private readonly int _maxTokenAllowed = configuration.GetAppSetting<int>(
-        ESetting.JwtMaxTokenAllowed
-    );
-
     public bool IsTokenRegistered(Guid userId, string userAgent, string token)
     {
         var tokenList = memoryCache.TryGetValue<List<(string, string)>>(userId.ToString());
@@ -28,7 +22,7 @@ public class JwtCacheService(IMemoryCache memoryCache, IConfiguration configurat
         {
             tokenList[existingTokenIndex] = (userAgent, token);
         }
-        else if (tokenList?.Count >= (_maxTokenAllowed < 1 ? 1 : _maxTokenAllowed))
+        else if (tokenList?.Count >= (maxTokenAllowed < 1 ? 1 : maxTokenAllowed))
         {
             tokenList.RemoveAt(0);
             tokenList.Add((userAgent, token));
