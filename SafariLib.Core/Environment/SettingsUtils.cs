@@ -36,7 +36,7 @@ public static class SettingsUtils
     ///    Load project settings to the web application builder.
     ///    The settings are loaded from another project.
     /// </summary>
-    public static IConfigurationBuilder LoadProjectSettings(this IConfigurationBuilder builder, string projectName)
+    public static IConfigurationBuilder AddProjectSettings(this IConfigurationBuilder builder, string projectName)
         => builder.SetBasePath(Path.Combine(Directory.GetCurrentDirectory(), "..", projectName))
             .AddJsonFile("appsettings.json")
             .AddJsonFile($"appsettings.{EnvUtils.Env}.json");
