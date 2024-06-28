@@ -26,7 +26,7 @@ public static class SettingsUtils
     ///     The settings are loaded from <strong>appsettings.json</strong>, <strong>appsettings.{env}.json</strong> and environment variables.
     ///     The environment is set by the <strong>ASPNETCORE_ENVIRONMENT</strong> environment variable.
     /// </summary>
-    public static WebApplicationBuilder LoadProjectSettings(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder AddProjectSettings(this WebApplicationBuilder builder)
     {
         builder.Configuration.AddProjectSettings();
         return builder;
@@ -73,7 +73,7 @@ public static class SettingsUtils
     ///   The setting is loaded from <strong>appsettings.json</strong>, <strong>appsettings.{env}.json</strong> and environment variables.
     ///   If the setting is not found, an exception is thrown.
     /// </summary>
-    public static T? GetSettingOrThrow<T>(this IConfiguration configuration, string key) 
+    public static T GetSettingOrThrow<T>(this IConfiguration configuration, string key) 
         => configuration.GetSetting<T>(key) ?? throw new Exception($"Setting {key} not found");
 
     /// <summary>
@@ -83,7 +83,7 @@ public static class SettingsUtils
     ///  The setting key is the display name of the enum value.
     ///  If the setting is not found, an exception is thrown.
     ///  </summary>
-    public static T? GetSettingOrThrow<T>(this IConfiguration configuration, System.Enum setting) 
+    public static T GetSettingOrThrow<T>(this IConfiguration configuration, System.Enum setting) 
         => configuration.GetSetting<T>(setting) ?? throw new Exception($"Setting {setting.GetDisplayName()} not found");
 
     /// <summary>
