@@ -6,7 +6,7 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <Version>1.0.1</Version>
+        <Version>1.1.0</Version>
         <Title>SafariLib.Repositories</Title>
         <Authors>BenoitSafari</Authors>
         <PackageIcon>logo.png</PackageIcon>
