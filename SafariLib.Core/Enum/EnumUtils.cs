@@ -3,7 +3,7 @@ using System.Reflection;
 
 namespace SafariLib.Core.Enum;
 
-public static class Extensions
+public static class EnumUtils
 {
     /// <summary>
     ///     Get the display name of an enum value that has a Display Attribute.

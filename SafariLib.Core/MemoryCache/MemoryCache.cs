@@ -2,7 +2,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 namespace SafariLib.Core.MemoryCache;
 
-public static class Extensions
+public static class MemoryCache
 {
     public static T? TryGetValue<T>(this IMemoryCache memoryCache, string key)
     {
