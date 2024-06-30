@@ -3,10 +3,17 @@
     <img width="200" src="https://raw.githubusercontent.com/SafariLib/.github/main/assets/logo.png" alt="SafariUI logo">
 </p>
 <h1 align="center">SafariLib</h1>
+<div align="center">
+    <a href="https://github.com/SafariLib"><img src="https://img.shields.io/badge/SafariLib-yellow.svg"></a>
+    <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg"></a>
+    <a href="https://dotnet.microsoft.com/en-us/"><img src="https://img.shields.io/badge/.net_8.0-blue.svg"></a>
+</div>
 
-![license](https://img.shields.io/badge/SafariLib-yellow.svg)
-[![license](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE)
-[![license](https://img.shields.io/badge/.net_8.0-blue.svg)](./LICENSE)
+<p align="center">
+    <em>The SafariLib project is a collection of helpers for build Web Applications using .Net</em>
+</p>
+
+
 ---
 ![license](https://img.shields.io/badge/Core-1.0.0-yellow.svg)
 
